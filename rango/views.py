@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-# inport the category model
+# import the category model
 from rango.models import Category
 from rango.models import Page
 
@@ -18,7 +18,6 @@ def index(request):
     # that will be passed to the template engine.
     category_list = Category.objects.order_by('-likes')[:5]
     page_list = Page.objects.order_by('-likes')[:5]
-
     context_dict = {}
     context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['categories'] = category_list
@@ -26,6 +25,13 @@ def index(request):
 
     # render the response and send it back
     return render(request, 'rango/index.html', context=context_dict)
+
+
+def about(request):
+    # Return a rendered response to send to the client.
+    # We make use of the shortcut function to make our lives easier.
+    # Note that the first parameter is the template we wish to use.
+    return render(request, 'rango/about.html', context=context_dict)
 
 
 def show_category(request, category_name_slug):
@@ -48,9 +54,3 @@ def show_category(request, category_name_slug):
     # Go render the responze and return it to the client.
     return render(request, 'rango/category.html', context=context_dict)
 
-
-def about(request):
-    # Return a rendered response to send to the client.
-    # We make use of the shortcut function to make our lives easier.
-    # Note that the first parameter is the template we wish to use.
-    return render(request, 'rango/about.html')

@@ -50,10 +50,10 @@ def populate():
     other_pages = [
 
         {'title': 'Bottle',
-         'url': 'http://bottlepy.org/docs/dev/'},
+         'url': 'http://bottlepy.org/docs/dev/', 'views': 89},
 
         {'title': 'Flask',
-         'url': 'http://flask.pocoo.org'}]
+         'url': 'http://flask.pocoo.org', 'views': 79}]
 
     cats = {'Python': {'pages': python_pages, 'views': 128, 'likes': 64},
             'Django': {'pages': django_pages, 'views': 64, 'likes': 32},
@@ -66,7 +66,7 @@ def populate():
     # and then adds all the associated pages for that category.
 
     for cat, cat_data in cats.items():
-        c = add_cat(cat, views=cat_data['views'], likes=cat_data['likes'])
+        c = add_cat(cat, cat_data['views'], cat_data['likes'])
         for p in cat_data['pages']:
             add_page(c, p['title'], p['url'], views=p['views'])
 
@@ -97,5 +97,3 @@ def add_cat(name, views=0, likes=0):
 if __name__ == '__main__':
     print('Starting Rango population script...')
     populate()
-
-
