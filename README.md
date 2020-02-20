@@ -1,5 +1,7 @@
 # Rango
 
+https://gla-my.sharepoint.com/:v:/g/personal/2410536s_student_gla_ac_uk/EQiKqyV6doJAn0UkYTK1jxwBSxN46ikLaMEfy1_cR65npQ?e=J0usmX
+
 I'm sorry I start this task from the last three days.
 Actually I choose a lot of courses that I think are useful for my future development, these courses are both on school or online, 
 covering computer related topics such as CV, NLP, and also other topics including design and marketing. 
