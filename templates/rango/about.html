@@ -1,15 +1,19 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
+<!-- inherant from base.html-->
 
+{% extends 'rango/base.html' %}
 {% load staticfiles %}  <!-- Static Media Files and Templates -->
 
+<!--    <head>-->
+<!--        <title>Rango</title>-->
+<!--    </head>-->
+{% block title_block %}About Rango{% endblock %}
 
-<html>
 
-    <head>
-        <title>Rango</title>
-    </head>
+<!--    <body>-->
+{% block body_block %}
 
-    <body>
+
     <h1>Rango says...</h1>
     <div>
         here is the about page. <br />
@@ -24,5 +28,4 @@
 
     </div>
 
-    </body>
-</html>
+{% endblock %}

@@ -1,15 +1,20 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
+{% extends 'rango/base.html' %}
+
 
 {% load staticfiles %}  <!-- Static Media Files and Templates -->
 
 
-<html>
+<!--<html>-->
 
-    <head>
-        <title>Rango</title>
-    </head>
+    <!--    <head>-->
+    <!--        <title>Rango</title>-->
+    <!--    </head>-->
 
-    <body>
+    {% block title_block %}Homepage{% endblock %}
+    {% block body_block %}
+
+<!--    <body>-->
     <h1>Rango says...</h1>
     <div>
         hey there partner! <br />
@@ -26,7 +31,12 @@
 
         <ul>
                 {% for category in categories %}
-                    <li> <a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a> </li>
+                    <li>
+                        <!-- <a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a>  -->
+
+                        <a href="{% url 'rango:show_category' category.slug %}">
+                            {{ category.name }}</a>
+                    </li>
                 {% endfor %}
                 </ul>
             {% else %}
@@ -53,19 +63,23 @@
 
 
 
-    <div>
-        <a href="/rango/about/"> About </a> <br />
-        <a href="/rango/add_category/">Add a New Category</a> <br />
-        <img src="{% static "images/rango.jpg" %}"
-                 alt="Picture of Rango" />
+    <!--    <div>-->
+    <!--        <a href="/rango/about/"> About </a> <br />-->
+    <!--        <a href="/rango/add_category/">Add a New Category</a> <br />-->
+    <!--        <img src="{% static "images/rango.jpg" %}"-->
+    <!--                 alt="Picture of Rango" />-->
 
-        <!-- add_new_page
-        <a href="/rango/add_page/">Add a New Page</a><br />  -->
-        <!-- I'm not sure if need the whole add new page-->
+    <!--        &lt;!&ndash; add_new_page-->
+    <!--        <a href="/rango/add_page/">Add a New Page</a><br />  &ndash;&gt;-->
+    <!--        &lt;!&ndash; I'm not sure if need the whole add new page&ndash;&gt;-->
 
-        <a href="/rango/add_category/">Add a New Category</a> <br />
+    <!--        <a href="/rango/add_category/">Add a New Category</a> <br />-->
 
-    </div>
+    <!--    </div>-->
 
-    </body>
-</html>
+    <!--    </body>-->
+
+    {% endblock %}
+
+
+<!--</html>-->
