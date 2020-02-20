@@ -17,6 +17,7 @@ from rango.forms import UserProfileForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
+
 def index(request):
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage matches to {{ boldmessage }} in the template!
@@ -74,6 +75,7 @@ def show_category(request, category_name_slug):
     return render(request, 'rango/category.html', context=context_dict)
 
 
+@login_required
 def add_category(request):
     form = CategoryForm()
 
@@ -98,9 +100,10 @@ def add_category(request):
     return render(request, 'rango/add_category.html', {'form': form})
 
 
+@login_required
 def add_page(request, category_name_slug):
     try:
-        category = Category.objects.get(slug = category_name_slug)
+        category = Category.objects.get(slug=category_name_slug)
     except Category.DoesNotExist:
         category = None
 
@@ -122,7 +125,7 @@ def add_page(request, category_name_slug):
 
                 return redirect(reverse('rango:show_category',
                                         kwargs={'category_name_slug':
-                                                category_name_slug}))
+                                                    category_name_slug}))
 
         else:
             print(form.errors)
@@ -207,6 +210,7 @@ def user_login(request):
 @login_required
 def restricted(request):
     return render(request, 'rango/restricted.html')
+
 
 @login_required
 def user_logout(request):
