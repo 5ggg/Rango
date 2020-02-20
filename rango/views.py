@@ -202,3 +202,15 @@ def user_login(request):
     # This scenario would most likely be a HTTP GET
     else:
         return render(request, 'rango/login.html')
+
+
+@login_required
+def restricted(request):
+    return render(request, 'rango/restricted.html')
+
+@login_required
+def user_logout(request):
+    # Since we know the user is logged in, we can not just log out them
+    logout(request)
+    # Take the user back bomepage
+    return redirect(reverse('rango:index'))
