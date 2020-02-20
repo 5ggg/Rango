@@ -19,25 +19,33 @@ def populate():
     # line 5
     python_pages = [
 
+        # I guess there is no other person also use the 'pi', 3.1415926535
+        # If there is another person, it is pure coincidence...
+        # actually I also made a short Vlog/video for my whole process of lab exercise...
+        # because I finished all of them within nearly two days at home not lab,
+        # (because I have a large monitor, good at code)
+        # this video is just as a record for small part of
+        # my daily life, Maybe it can also be used as evidence ahhhh
+
         {'title': 'Official Python Tutorial',
-         'url': 'http://docs.python.org/3/tutorial/'},
+         'url': 'http://docs.python.org/3/tutorial/', 'views': 3},
 
         {'title': 'How to Think like a Computer Scientist',
-         'url': 'http://www.greenteapress.com/thinkpython/'},
+         'url': 'http://www.greenteapress.com/thinkpython/', 'views': 14},
 
         {'title': 'Learn Python in 10 Minutes',
-         'url': 'http://www.korokithakis.net/tutorials/python/'}]
+         'url': 'http://www.korokithakis.net/tutorials/python/', 'views': 15}]
 
     django_pages = [
 
         {'title': 'Official Django Tutorial',
-         'url': 'https://docs.djangoproject.com/en/2.1/intro/tutorial01/'},
+         'url': 'https://docs.djangoproject.com/en/2.1/intro/tutorial01/', 'views': 92},
 
         {'title': 'Django Rocks',
-         'url': 'http://www.djangorocks.com/'},
+         'url': 'http://www.djangorocks.com/', 'views': 65},
 
         {'title': 'How to Tango with Django',
-         'url': 'http://www.tangowithdjango.com/'}]
+         'url': 'http://www.tangowithdjango.com/', 'views': 35}]
 
     other_pages = [
 
@@ -60,7 +68,7 @@ def populate():
     for cat, cat_data in cats.items():
         c = add_cat(cat, views=cat_data['views'], likes=cat_data['likes'])
         for p in cat_data['pages']:
-            add_page(c, p['title'], p['url'])
+            add_page(c, p['title'], p['url'], views=p['views'])
 
     # print out the categories we have added.
     for c in Category.objects.all():
@@ -77,9 +85,9 @@ def add_page(cat, title, url, views=0):
 
 
 def add_cat(name, views=0, likes=0):
-    c = Category.objects.get_or_create(name=name)[0]
-    c.views = views
-    c.likes = likes
+    c = Category.objects.get_or_create(name=name, views=views, likes=likes)[0]
+    # c.views = views
+    # c.likes = likes
     c.save()
     return c
 
@@ -89,3 +97,5 @@ def add_cat(name, views=0, likes=0):
 if __name__ == '__main__':
     print('Starting Rango population script...')
     populate()
+
+
