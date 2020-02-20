@@ -45,7 +45,7 @@ def index(request):
 
     # call the helper to handle cookies
     visitor_cookie_handler(request)
-    context_dict['visits'] = request.session['visits']
+    # context_dict['visits'] = request.session['visits']
 
     # Obtain our response object realy se we can add cookie info.
     response = render(request, 'rango/index.html', context=context_dict)
@@ -57,19 +57,25 @@ def index(request):
 
 
 def about(request):
-    if request.session.test_cookie_worked():
-        print("TEST COOKIE WORKED!")
-        request.session.delete_test_cookie()
+    # if request.session.test_cookie_worked():
+    #     print("TEST COOKIE WORKED!")
+    #     request.session.delete_test_cookie()
 
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
 
     # prints out whether the method is a GET or a POST
-    print(request.method)
+    # print(request.method)
     # prints out the user name, if no one is logged in it prints 'AnonymousUser'
-    print(request.user)
-    return render(request, 'rango/about.html', {})
+    # print(request.user)
+    # return render(request, 'rango/about.html', {})
+
+    context_dict = {}
+    visitor_cookie_handler(request)
+    context_dict['visits'] = request.session['visits']
+
+    return render(request, 'rango/about.html', context=context_dict)
 
 
 def show_category(request, category_name_slug):
