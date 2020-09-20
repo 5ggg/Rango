@@ -7,7 +7,7 @@ Actually I choose a lot of courses that I think are useful for my future develop
 covering computer related topics such as CV, NLP, and also other topics including design and marketing. 
 So I usually can’t take part in the experimental class on Tuesday.
 
-But at the beginning, I have read the introduction and found that the content didn't look very difficult, 
+But at the beginning, I have read the introduction and found that the content didn't look very difficult,  
 so I was very relieved to finish it at first.
 But it turns out that the whole process, especially debugging, 
 still took me nearly twice time as long as expected. 
